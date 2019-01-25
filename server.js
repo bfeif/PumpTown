@@ -9,7 +9,7 @@ app.use(express.static('/dist/pump-town'));
 
 app.get('/*', function(req,res) {
     
-res.sendFile(path.join('/dist/PumpTown/index.html'));
+res.sendFile(path.join('/dist/pump-town/index.html'));
 });
 
 // Start the app by listening on the default Heroku port
