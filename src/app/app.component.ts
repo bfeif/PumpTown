@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'PumpTown';
+  description = "Don't bike unpumped! Here are some spots around Boston to juice up those tires!"
 }
