@@ -5,5 +5,6 @@
   <agm-marker *ngFor="let pump of pumps"  
     [latitude]="pump.lat" 
     [longitude]="pump.lon">
+    <agm-info-window>{{pump.notes}}</agm-info-window>
   </agm-marker>
 </agm-map>
