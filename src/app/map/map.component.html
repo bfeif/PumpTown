@@ -2,7 +2,7 @@
   [latitude]="centerLat" 
   [longitude]="centerLon"
   [zoom]="12">
-  <agm-marker *ngFor="let pump of pumps" 
+  <agm-marker *ngFor="let pump of pumps"  
     [latitude]="pump.lat" 
     [longitude]="pump.lon">
   </agm-marker>
