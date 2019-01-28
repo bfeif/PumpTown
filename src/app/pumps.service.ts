@@ -16,7 +16,8 @@ const httpOptions = {
 })
 export class PumpsService {
 
-  private pumpsUrl = 'http://my-json-server.typicode.com/bfeif/PumpTownDB/pumps/'; //replace this with some json file
+  // private pumpsUrl = 'http://my-json-server.typicode.com/bfeif/PumpTownDB/pumps/'; //replace this with some json file
+  private pumpsUrl = 'http://localhost:3000/pumps/'; //replace this with some json file
   constructor(private http: HttpClient) { }
 
   getPumps(): Observable<Pump[]> {
@@ -24,7 +25,7 @@ export class PumpsService {
   }
 
   createPump(pump: Pump): Observable<Pump> {
-    return this.http.post<Pump>(this.pumpsUrl, pump).pipe(
+    return this.http.post<Pump>(this.pumpsUrl, pump, httpOptions).pipe(
       tap((pump: Pump) => this.log('added pump w/ id=${pump.id}'))
     )
   }
