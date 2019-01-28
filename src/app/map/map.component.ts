@@ -26,4 +26,11 @@ export class MapComponent implements OnInit {
       .subscribe(pumps => this.pumps = pumps);
   }
 
+  createPump(): void {
+    console.log('map creating pump');
+    this.pumpService.createPump({lat: 42.36, lon: -71.1, notes: 'steve'} as Pump)
+      .subscribe(pump => {
+        this.pumps.push(pump);
+      });
+  }
 }

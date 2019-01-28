@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+// import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,6 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'PumpTown';
   description = "Don't bike unpumped! Here are some spots around Boston to juice up those tires!"
+
+  // constructor(private httpClient: HttpClient) {}
 }
