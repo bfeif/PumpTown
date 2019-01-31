@@ -7,13 +7,11 @@ import { AppComponent } from './app.component';
 import { AgmCoreModule } from '@agm/core';
 import { MapComponent } from './map/map.component';
 import { HttpClientModule } from '@angular/common/http';
-import { PumpMakerComponent } from './pump-maker/pump-maker.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MapComponent,
-    PumpMakerComponent
+    MapComponent
   ],
   imports: [
     BrowserModule,
