@@ -1,3 +1,4 @@
+<!-- map component -->
 <agm-map 
   [latitude]="centerLat" 
   [longitude]="centerLon"
@@ -7,6 +8,33 @@
     [longitude]="pump.lon">
     <agm-info-window>{{pump.notes}}</agm-info-window>
   </agm-marker>
+  <agm-marker
+    *ngIf="pumpToAdd"
+    [latitude]="pumpToAdd.lat"
+    [longitude]="pumpToAdd.lon"
+    [markerDraggable]="true"
+    [iconUrl]="bicon"
+    [animation]="DROP"
+    (dragEnd)="newPumpMoved($event)">
+  </agm-marker>
 </agm-map>
 
-<button (click)="createPump()">fontana!</button>
+<!-- pump creator component, should be a separate, actual component -->
+<button (click)="startCreatePump()">Click Here to Add a New Pump!</button>
+<div *ngIf="isCreating">
+  <h3>Add a New Pump Spot:</h3>
+  <ol>
+    <li>Get pumped!</li>
+    <li>Drag the bicycle around until you've decided on the location.</li>
+    <li>Enter any notes about the spot</li>
+    <li>Click "Confirm Pump" to help others get pumped too!</li>
+  </ol>
+  <h4>New Pump Details</h4>
+  <div>Latitude: {{pumpToAdd.lat}}</div>
+  <div>Longitude: {{pumpToAdd.lon}}</div>
+  <div>Notes: 
+    <input [(ngModel)]="pumpToAdd.notes" placeholder="Enter any notes here!">
+  </div>
+  <button (click)="confirmCreatePump()">Confirm Pump</button>
+  <button (click)="escapeCreatePump()">Escape Pump Creation</button>
+</div>

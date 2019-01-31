@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { PUMPS } from '../mock-pumps';
 import { PumpsService } from '../pumps.service';
 import { Pump } from '../pump';
+
+const bikeSize = 60;
 
 @Component({
   selector: 'app-map',
@@ -11,9 +12,20 @@ import { Pump } from '../pump';
 export class MapComponent implements OnInit {
   centerLat: number = 42.367459;
   centerLon: number = -71.080071;
-
-  // pumps = PUMPS;
   pumps: Pump[];
+  isCreating: boolean = false;
+  pumpToAdd: Pump;
+  public bicon = {
+    url: '../assets/images/bike.png',
+    scaledSize: {
+      width: bikeSize,
+      height: bikeSize
+    },
+    anchor: {
+      x: bikeSize/2,
+      y: bikeSize/2
+    }
+  }
   
   constructor(private pumpService: PumpsService) { }
 
@@ -26,11 +38,29 @@ export class MapComponent implements OnInit {
       .subscribe(pumps => this.pumps = pumps);
   }
 
-  createPump(): void {
-    console.log('map creating pump');
-    this.pumpService.createPump({lat: 42.36, lon: -71.1, notes: 'steve'} as Pump)
+  startCreatePump(): void {
+    this.isCreating = true;
+    this.pumpToAdd = {lat: 42.36, lon: -71.1, notes: ''} as Pump;
+  }
+
+  confirmCreatePump(): void {
+    this.pumpService.createPump(this.pumpToAdd)
       .subscribe(pump => {
         this.pumps.push(pump);
       });
+    this.pumpToAdd = null;
+    this.isCreating = false;
   }
+
+  escapeCreatePump(): void {
+    this.isCreating = false;
+    this.pumpToAdd = null;
+  }
+
+  newPumpMoved(e): void {
+    this.pumpToAdd.lat = e.coords.lat;
+    this.pumpToAdd.lon = e.coords.lng;
+    console.log(this.pumpToAdd.notes)
+  }
+
 }
