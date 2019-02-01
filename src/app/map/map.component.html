@@ -30,8 +30,8 @@
     <li>Click "Confirm Pump" to help others get pumped too!</li>
   </ol>
   <h4>New Pump Details</h4>
-  <div>Latitude: {{pumpToAdd.lat}}</div>
-  <div>Longitude: {{pumpToAdd.lon}}</div>
+  <div>Latitude: {{ pumpToAdd.lat | number }}</div>
+  <div>Longitude: {{ pumpToAdd.lon | number }}</div>
   <div>Notes: 
     <input [(ngModel)]="pumpToAdd.notes" placeholder="Enter any notes here!">
   </div>
