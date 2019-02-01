@@ -9,6 +9,4 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'PumpTown';
   description = "Don't bike unpumped--here are some spots around Boston to juice up those tires!"
-
-  // constructor(private httpClient: HttpClient) {}
 }
