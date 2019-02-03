@@ -1,12 +1,15 @@
 <!-- map component -->
-<agm-map 
+<agm-map id=map
   [latitude]="centerLat" 
   [longitude]="centerLon"
-  [zoom]="12">
+  [zoom]="12"
+  (boundsChange)="setMapCenterLatLon($event)"
+  (mapClick)="setNewPumpLocation"
+  (mapReady)="getMap($event)">
   <agm-marker *ngFor="let pump of pumps"  
     [latitude]="pump.lat" 
     [longitude]="pump.lon">
-    <agm-info-window>{{pump.notes}}</agm-info-window>
+    <agm-info-window>{{ pump.notes }}</agm-info-window>
   </agm-marker>
   <agm-marker
     *ngIf="pumpToAdd"
