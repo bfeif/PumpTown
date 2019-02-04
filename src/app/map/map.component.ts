@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
 import { PumpsService } from '../pumps.service';
 import { Pump } from '../pump';
-
+import { Component, ViewChild, OnInit } from '@angular/core';
+import { MapsAPILoader, AgmMap } from '@agm/core';
+import { GoogleMapsAPIWrapper } from '@agm/core/services';
+ 
 const bikeSize = 60;
 
 @Component({
@@ -10,11 +12,14 @@ const bikeSize = 60;
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit {
+
+  @ViewChild(AgmMap) map: AgmMap;
+
   centerLat: number = 42.367459;
   centerLon: number = -71.080071;
   pumps: Pump[];
-  isCreating: boolean = false;
   pumpToAdd: Pump;
+
   public bicon = {
     url: '../assets/images/bike.png',
     scaledSize: {
@@ -27,9 +32,16 @@ export class MapComponent implements OnInit {
     }
   };
   
-  constructor(private pumpService: PumpsService) { }
+  constructor(
+    private pumpService: PumpsService, 
+    // public mapsApiLoader: MapsAPILoader,
+    // private wrapper: GoogleMapsAPIWrapper
+    ) {
+      // this.mapsApiLoader = mapsApiLoader;
+      // this.wrapper = wrapper;
+  }
 
-  // Init function.
+  // OnInit function.
   ngOnInit() {
     this.getPumps();
   }
@@ -42,8 +54,7 @@ export class MapComponent implements OnInit {
 
   // For when the user clicks on the "Create Pump" button.
   startCreatePump(): void {
-    this.isCreating = true;
-    this.pumpToAdd = {lat: 42.36, lon: -71.1, notes: '', checked: false} as Pump;
+    this.pumpToAdd = {lat: this.map.latitude, lon: this.map.longitude, notes: '', checked: false} as Pump;
   }
 
   // For when the user clicks the "Confirm Pump" Button, ending the pump creation.
@@ -53,12 +64,10 @@ export class MapComponent implements OnInit {
         this.pumps.push(pump);
       });
     this.pumpToAdd = null;
-    this.isCreating = false;
   }
 
   // For when the user clicks the "Escape Pump" button, escaping pump creation.
   escapeCreatePump(): void {
-    this.isCreating = false;
     this.pumpToAdd = null;
   }
 
@@ -66,12 +75,6 @@ export class MapComponent implements OnInit {
   newPumpMoved(e): void {
     this.pumpToAdd.lat = e.coords.lat;
     this.pumpToAdd.lon = e.coords.lng;
-  }
-
-  // TODO
-  setMapCenterLatLon(e): void {
-    this.centerLat = e.lat;
-    this.centerLon = e.lon;
   }
 
 }

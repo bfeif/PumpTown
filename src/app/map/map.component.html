@@ -2,10 +2,7 @@
 <agm-map id=map
   [latitude]="centerLat" 
   [longitude]="centerLon"
-  [zoom]="12"
-  (boundsChange)="setMapCenterLatLon($event)"
-  (mapClick)="setNewPumpLocation"
-  (mapReady)="getMap($event)">
+  [zoom]="12">
   <agm-marker *ngFor="let pump of pumps"  
     [latitude]="pump.lat" 
     [longitude]="pump.lon">
@@ -24,7 +21,7 @@
 
 <!-- pump creator component, should be a separate, actual component -->
 <button (click)="startCreatePump()">Click Here to Add a New Pump!</button>
-<div *ngIf="isCreating">
+<div *ngIf="pumpToAdd">
   <h3>Add a New Pump Spot:</h3>
   <ol>
     <li>Get pumped!</li>
