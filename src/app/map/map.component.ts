@@ -64,6 +64,9 @@ export class MapComponent implements OnInit {
   // For when the user clicks the "Confirm Pump" Button, ending the pump creation.
   confirmCreatePump(): void {
     this.pumpService.createPump(this.pumpToAdd)
+    //   .then((newPump: Pump) => {
+    //   this.createHandler(newPump);
+    // });
       // .subscribe(pump => {
       //   this.pumps.push(pump);
       // });
