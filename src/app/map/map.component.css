@@ -1,5 +1,25 @@
 agm-map {
     height: 400px;
-    width: 600px;
-    max-width: 300px;
+    width: 100%;
+    text-align: center;
+}
+
+.btn-primary {
+    width: 96%;
+    margin: 2%;
+    text-align: center;
+    font-size: 15px
+}
+
+.btn-secondary {
+    margin: 10px
+}
+
+.pump-add-dialogue {
+    margin-left: 3%;
+    margin-right: 3%
+}
+
+.pump-confirm-button-block {
+    text-align: center;
 }
