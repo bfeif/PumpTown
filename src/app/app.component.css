@@ -9,3 +9,31 @@
     text-align: center;
     font-size: 20px;
 }
+agm-map {
+    height: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+.btn-primary {
+    width: 96%;
+    margin-right: 2%;
+    margin-left: 2%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 15px
+}
+
+.btn-secondary {
+    margin: 10px
+}
+
+.pump-add-dialogue {
+    margin-left: 3%;
+    margin-right: 3%
+}
+
+.pump-confirm-button-block {
+    text-align: center;
+}
