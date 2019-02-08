@@ -9,8 +9,7 @@ const bikeSize = 60;
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
-  styleUrls: ['./map.component.css'],
-  providers: [PumpsService]
+  styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit {
 
@@ -44,16 +43,13 @@ export class MapComponent implements OnInit {
 
   // OnInit function.
   ngOnInit() {
-    this.getPumps()
+    this.getPumps();
   }
 
   // Gets pumps from the DB service.
   getPumps(): void {
-    this.pumpService.getPumps().
-      then((pumps: Pump[]) => {
-        this.pumps = pumps
-      });
-    console.log(this.pumps);
+    this.pumpService.getPumps()
+      .subscribe(pumps => this.pumps = pumps);
   }
 
   // For when the user clicks on the "Create Pump" button.
@@ -64,12 +60,9 @@ export class MapComponent implements OnInit {
   // For when the user clicks the "Confirm Pump" Button, ending the pump creation.
   confirmCreatePump(): void {
     this.pumpService.createPump(this.pumpToAdd)
-    //   .then((newPump: Pump) => {
-    //   this.createHandler(newPump);
-    // });
-      // .subscribe(pump => {
-      //   this.pumps.push(pump);
-      // });
+      .subscribe(pump => {
+        this.pumps.push(pump);
+      });
     this.pumpToAdd = null;
   }
 
