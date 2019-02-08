@@ -6,7 +6,10 @@ agm-map {
 
 .btn-primary {
     width: 96%;
-    margin: 2%;
+    margin-right: 2%;
+    margin-left: 2%;
+    margin-top: 10px;
+    margin-bottom: 10px;
     text-align: center;
     font-size: 15px
 }
