@@ -13,7 +13,6 @@ const httpOptions = {
 })
 export class PumpsService {
 
-  // private pumpsUrl = 'http://my-json-server.typicode.com/bfeif/PumpTownDB/pumps/'; // replace this with some json file
   // private pumpsUrl = 'http://localhost:3000/pumps/'; // local json server
   private pumpsUrl = 'https://pump-town-db.herokuapp.com/pumps'; // heroku json server
   constructor(private http: HttpClient) { }
