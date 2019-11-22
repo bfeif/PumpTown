@@ -1,0 +1,42 @@
+<!-- map component -->
+<!-- <agm-map id=map
+  [latitude]="centerLat" 
+  [longitude]="centerLon"
+  [zoom]="12">
+  <agm-marker *ngFor="let pump of pumps"  
+    [latitude]="pump.lat" 
+    [longitude]="pump.lon">
+    <agm-info-window>{{ pump.notes }}</agm-info-window>
+  </agm-marker>
+  <agm-marker
+    *ngIf="pumpToAdd"
+    [latitude]="pumpToAdd.lat"
+    [longitude]="pumpToAdd.lon"
+    [markerDraggable]="true"
+    [iconUrl]="bicon"
+    [animation]="DROP"
+    (dragEnd)="newPumpMoved($event)">
+  </agm-marker>
+</agm-map> -->
+
+<!-- pump creator component, should be a separate, actual component -->
+<!-- <button (click)="startCreatePump()" class="btn btn-primary">Click Here to Add a New Pump!</button>
+<div *ngIf="pumpToAdd" class="pump-add-dialogue">
+  <h5>Add a New Pump Spot:</h5>
+  <ol>
+    <li>Get pumped!</li>
+    <li>Drag the bicycle around until you've decided on the location.</li>
+    <li>Enter any notes about the spot</li>
+    <li>Click "Confirm Pump" to help others get pumped too!</li>
+  </ol>
+  <h5>New Pump Details</h5>
+  <div class="latlng-text">Latitude: {{ pumpToAdd.lat | number }}</div>
+  <div class="latlng-text">Longitude: {{ pumpToAdd.lon | number }}</div>
+  <div>Notes: 
+    <input [(ngModel)]="pumpToAdd.notes" placeholder="Enter any notes here!">
+  </div>
+  <div class="pump-confirm-button-block">
+    <button (click)="confirmCreatePump()" class="btn btn-secondary">Confirm Pump</button>
+    <button (click)="escapeCreatePump()" class="btn btn-secondary">Escape Pump Creation</button>
+  </div>
+</div> -->

@@ -6,13 +6,13 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
-// import { MapComponent } from './map/map.component';
+import { MapComponent } from './map/map.component';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    // MapComponent
+    MapComponent
   ],
   imports: [
     BrowserModule,
